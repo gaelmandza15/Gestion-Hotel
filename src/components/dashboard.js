@@ -190,7 +190,10 @@ const attachDashboardListeners = (container) => {
   // Bouton nouvelle réservation
   container.querySelector('#btn-new-reservation')?.addEventListener('click', () => {
     console.log('Nouvelle réservation')
-    // TODO: Ouvrir la modale de nouvelle réservation
+    // Ouvrir la modale de nouvelle réservation
+    if (window.newReservationModal) {
+      window.newReservationModal.open()
+    }
   })
   
   // Lien voir toutes les réservations

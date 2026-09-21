@@ -156,3 +156,23 @@ export const getDayName = (dateInput, short = true) => {
   
   return short ? DAYS_FR_SHORT[date.getDay()] : DAYS_FR[date.getDay()]
 }
+
+// Formater une date pour le stockage (YYYY-MM-DD)
+export const formatDateForStorage = (dateInput) => {
+  const date = parseDate(dateInput)
+  if (!date || isNaN(date)) return ''
+  
+  const day = String(date.getDate()).padStart(2, '0')
+  const month = String(date.getMonth() + 1).padStart(2, '0')
+  const year = date.getFullYear()
+  
+  return `${year}-${month}-${day}`
+}
+
+// Alias pour formatDate (utilisé dans billingView)
+export const formatDate = formatDateLong
+
+// Calculer le nombre de nuits entre deux dates
+export const calculateNights = (checkIn, checkOut) => {
+  return getDaysDifference(checkIn, checkOut)
+}

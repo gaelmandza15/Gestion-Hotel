@@ -4,7 +4,9 @@
 // DEPENDS ON: utils/currency.js, utils/dates.js
 
 import { formatCurrency } from '../utils/currency.js'
-import { formatDateLong, isToday } from '../utils/dates.js'
+import { formatDateLong, isToday, calculateNights } from '../utils/dates.js'
+import { showReservationDetails } from './modals/ReservationDetailsModal.js'
+import { openNewReservationModal } from './modals/NewReservationModal.js'
 
 // Configuration des statuts
 const STATUS_CONFIG = {
@@ -155,16 +157,14 @@ const attachTableListeners = (container, appState) => {
   
   // Nouvelle réservation
   container.querySelector('#btn-new-reservation')?.addEventListener('click', () => {
-    console.log('Nouvelle réservation')
-    // TODO: Ouvrir modale
+    openNewReservationModal()
   })
   
-  // Clic sur une ligne
+  // Clic sur une ligne - Afficher les détails
   container.querySelectorAll('[data-reservation-id]').forEach(row => {
     row.addEventListener('click', () => {
       const reservationId = row.dataset.reservationId
-      console.log('Réservation sélectionnée:', reservationId)
-      // TODO: Ouvrir détails ou actions
+      showReservationDetails(reservationId)
     })
   })
 }
