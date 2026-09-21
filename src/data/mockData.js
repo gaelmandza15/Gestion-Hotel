@@ -3,12 +3,10 @@
 // OUTPUT: Objets mock (reservations, rooms, clients)
 // DEPENDS ON: DYNAMIC_RULES.md (respect des règles métier)
 
-import { format } from 'date-fns'
-
 // Génération de dates relatives à aujourd'hui
 const today = new Date()
 const addDays = (days) => new Date(today.getTime() + days * 24 * 60 * 60 * 1000)
-const formatDate = (date) => format(date, 'yyyy-MM-dd')
+const formatDate = (date) => date.toISOString().slice(0, 10)
 
 export const mockClients = [
   {
