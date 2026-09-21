@@ -3,6 +3,7 @@
 // OUTPUT: Application initialisée dans le DOM
 // DEPENDS ON: Tous les services et components
 
+import './styles.css'
 import { get, set, initializeWithMockData } from './services/storage.js'
 import { mockClients, mockRooms, mockReservations, defaultEstablishment } from './data/mockData.js'
 import { renderMainMenu } from './components/navigation.js'

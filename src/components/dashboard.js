@@ -118,7 +118,7 @@ export const renderDashboard = (container, appState) => {
       </div>
       
       <div class="flex-1 overflow-y-auto">
-        ${renderMiniReservationsTable(appState.reservations.slice(0, 5), currency)}
+        ${renderMiniReservationsTable(appState.reservations.slice(0, 5), currency, appState)}
       </div>
     </div>
   `
@@ -130,7 +130,7 @@ export const renderDashboard = (container, appState) => {
 }
 
 // Mini tableau des réservations
-const renderMiniReservationsTable = (reservations, currency) => {
+const renderMiniReservationsTable = (reservations, currency, appState = {}) => {
   if (!reservations || reservations.length === 0) {
     return '<div class="text-center text-gray-400 py-8">Aucune réservation</div>'
   }
@@ -159,8 +159,8 @@ const renderMiniReservationsTable = (reservations, currency) => {
   `
   
   reservations.forEach(res => {
-    const client = res.clientNom || 'Client inconnu'
-    const room = res.roomNom || 'Chambre non définie'
+    const client = res.clientNom || appState.clients?.find(c => c.id === res.clientId)?.nom || 'Client inconnu'
+    const room = res.roomNom || appState.rooms?.find(r => r.id === res.roomId)?.nom || 'Chambre non définie'
     const status = statusLabels[res.statut] || { label: res.statut, color: 'bg-gray-100 text-gray-700' }
     
     html += `

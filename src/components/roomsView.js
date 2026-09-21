@@ -90,7 +90,7 @@ export class RoomsView {
             </div>
         `;
 
-        this.container = document.getElementById('app');
+        this.container = document.getElementById('main-content');
         this.container.innerHTML = html;
     }
 
