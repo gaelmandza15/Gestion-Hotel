@@ -1,4 +1,4 @@
-import { storage } from '../utils/storage.js';
+import { storage } from './storage.js';
 import { generateId } from '../utils/idGenerator.js';
 
 const RESERVATIONS_KEY = 'hotel_reservations';

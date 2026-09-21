@@ -1,4 +1,4 @@
-import { storage } from '../utils/storage.js';
+import { storage } from './storage.js';
 
 const SETTINGS_KEY = 'hotel_settings';
 

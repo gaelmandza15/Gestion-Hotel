@@ -1,5 +1,5 @@
 import { generateId } from '../utils/idGenerator.js';
-import { storage } from '../utils/storage.js';
+import { storage } from './storage.js';
 
 const CLIENTS_KEY = 'hotel_clients';
 
@@ -115,3 +115,8 @@ export const clientsService = {
     }
   }
 };
+
+// Exports de compatibilité (fonctions individuelles)
+export const getClients = () => clientsService.getAll();
+export const getClientById = (id) => clientsService.getById(id);
+export const createClient = (clientData) => clientsService.create(clientData);

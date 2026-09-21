@@ -75,6 +75,9 @@ export const exists = (key) => {
   return localStorage.getItem(fullKey) !== null
 }
 
+// Objet de compatibilité regroupant les fonctions individuelles
+export const storage = { get, set, remove, clear, exists }
+
 // Obtenir toutes les clés
 export const getAllKeys = () => {
   const keys = []

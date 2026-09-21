@@ -161,3 +161,8 @@ export class RoomsService {
 // Instance singleton
 export const roomsService = new RoomsService();
 export default roomsService;
+
+// Exports de compatibilité (fonctions individuelles)
+export const getRooms = () => roomsService.getAll();
+export const getRoomById = (id) => roomsService.getById(id);
+export const updateRoom = (id, updates) => roomsService.update(id, updates);
